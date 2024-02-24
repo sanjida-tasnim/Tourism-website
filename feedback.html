@@ -1,0 +1,186 @@
+<?php
+if (isset($_POST['submit'])) {
+  $name = $_POST['name'];
+  $subject = $_POST['subject'];
+  $mailFrom = $_POST['email'];
+  $message = $_POST['message'];
+
+  $mailTo = 'chtgsanjidashawon@gmail.com';
+  $headers = 'From: '.$mailFrom;
+  $txt = "You have received an email from ".$name. ".\n\n".$message;
+  mail($mailTo, $subject, $txt, $headers);
+
+  header('Location: vaiups.php?mailsend');
+  exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+     <title>feedback</title>
+     <style>
+      body{
+        margin: 0;
+        background-image: url(ish.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .contact{
+        margin-top: 200px;
+        margin-left: 350px;
+        margin-right: 350px;
+        color: white;
+        background-color: rgba(0,0,0,0.6);
+        border: 2px solid white;
+      }
+      button{
+        color: white;
+        background-color: darkorange;
+        border: none;
+        padding: 10px 12px;
+        margin-left: 350px;
+        margin-bottom: 15px;
+
+      }
+      input{
+        color: white;
+      }
+      span{
+        margin-left: 15px;
+      }
+      #coco {
+  max-width: 1600px;
+  margin: 0;
+  background-color: #fff;
+  padding: 12px;
+}
+#coco img{
+  position: absolute;
+}
+header {
+  background-color: #4B0082;
+  height: 70px;
+  padding: 2px;
+}
+
+header h1 {
+  font-style: italic;
+  text-align: center;
+  color: #fff;
+  line-height: 18px;
+}
+
+.nav{
+  width: 100%;
+  background-color: rgba(450,0,60,0.8);
+  color: #fff;
+}
+
+.menu{
+  line-height: 45px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav .menu .menu_item{
+  display: inline-block;
+  position: relative;
+}
+
+.menu_item:hover {
+  background-color: #2c3e50;
+}
+
+.nav .menu .menu_item a{
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.submenu {
+  text-decoration: none;
+  display: none;
+  position: absolute;
+  width: 270px;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 9999;
+}
+
+.menu_item:hover .submenu{
+  display: block;
+}
+
+.submenu_item{
+  border-left: 4px solid transparent;
+}
+
+.submenu_item:hover {
+  background-color: rgba(0,0,0,0.6);
+  border-left: 4px solid rgba(450,0,60,0.8);
+}
+
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+     <div id="coco">
+              <img src="logoo.png" height="85" width="70">
+                     <header>
+                            <h1>TOURIST WONDER BD</h1>
+                     </header>
+              </div>
+       <nav class="nav">
+              <ul class="menu">
+                     <li class="menu_item"><a href="index.html">Home</a></li>
+                     <li class="menu_item"><a href="#">Beaches</a>
+              <ul class="submenu">
+                     <li class="submenu_item"><a href="#">Cox's Bazar Beach</a></li>
+                     <li class="submenu_item"><a href="potenga.html">Potenga Beach</a></li>
+                     <li class="submenu_item"><a href="inani.html">Inani Beach</a></li>
+                     <li class="submenu_item"><a href="kuakata.html">Kuakata Beach</a></li>
+                     <li class="submenu_item"><a href="guliakhali.html">Guliakhali Beach</a></li>
+              </ul>
+                     </li>
+                     <li class="menu_item"><a href="#">Hill stations</a>
+                             <ul class="submenu">
+                     <li class="submenu_item"><a href="bandarban.html">Bandarban</a></li>
+                     <li class="submenu_item"><a href="khagrachori.html">Khagrachori</a></li>
+                     <li class="submenu_item"><a href="jaflong.html">Jaflong</a></li>
+                    
+              </ul>
+                     </li>
+                     <li class="menu_item"><a href="island.html">Islands</a>
+                            
+                     </li>
+                     <li class="menu_item"><a href="waterfall.html">Water falls</a>
+               
+                     </li>
+                     
+                     
+                     <li class="menu_item"><a href="#">Feedback</a>
+             
+                     </li>
+                     <li class="menu_item"><a href="login.html">Log-In</a>
+             
+                     </li>
+              </ul>
+       </nav>
+     <form class="contact" action="vaiups.php" method="post"><br>
+     <span>Name <input type="text" name="name" style="margin-left: 20px;background-color: rgba(0,0,0,0.6);"></span><br><br>
+     <span>Email <input type="text" name="email" style="margin-left: 20px;background-color: rgba(0,0,0,0.6);"></span><br><br>
+     <span>Subject <input type="text" name="subject" style="margin-left: 10px;background-color: rgba(0,0,0,0.6);"></span><br><br>
+     <span>Message <textarea name="message" rows="8" cols="80" style="margin-left: 2px;background-color: rgba(0,0,0,0.6);color: white;"></textarea></span><br><br>
+             <button type="submit" name="submit" >Send Mail</button>
+    </form>
+  </body>
+</html>
